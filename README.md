@@ -18,7 +18,7 @@ Esta API de Gestión Escolar es una aplicación backend desarrollada con Node.js
 - Nodemon (desarrollo)
 
 ### Estructura Del Proyecto
-
+```plaintext
 ├── config/ 
 │   └── db.js               # Configuración de conexión a MongoDB
 ├── models/ 
@@ -27,6 +27,7 @@ Esta API de Gestión Escolar es una aplicación backend desarrollada con Node.js
 │   └── routes.js            # Rutas de la API
 ├── app.js                   # Punto de entrada de la aplicación
 └── package.json             # Dependencias y scripts
+```
 
 ## API Endpoints
 ### GET /estudiantes
