@@ -77,9 +77,8 @@ Elimina un estudiante por ID
    npm install
    ```
 3. Configurar variables de entorno: Crear archivo .env en la raíz del proyecto:
-   ``bash
+   ```plaintext
    VITE_API_URL=url_api
-   VITE_API_KEY=api_key
    ```
 4. Ejecutar `npm start` para iniciar el servidor
 5. La API estará disponible en `http://localhost:3000`
