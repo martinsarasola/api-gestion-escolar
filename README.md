@@ -78,7 +78,7 @@ Elimina un estudiante por ID
    ```
 3. Configurar variables de entorno: Crear archivo .env en la raíz del proyecto:
    ```plaintext
-   VITE_API_URL=url_api
+   MONGO_URI=url_api
    ```
 4. Ejecutar `npm start` para iniciar el servidor
 5. La API estará disponible en `http://localhost:3000`
