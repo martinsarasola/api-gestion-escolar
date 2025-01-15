@@ -5,11 +5,14 @@ const dbconnect = require("./config/db");
 const app = express();
 
 app.use(express.json());
-
 app.use(routes);
 
-dbconnect();
+dbconnect()
+  .then(() => {
+    console.log("Conexión con la base de datos exitosa");
+  })
+  .catch((error) => {
+    console.error("Hubo un error al conectar a la base de datos:", error);
+  });
 
-app.listen(3000, (req, res) => {
-  console.log("Servidor corriendo en puerto 3000");
-});
+module.exports = app;
