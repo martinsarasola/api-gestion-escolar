@@ -7,21 +7,14 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-let isConnected = false;
-const connectDB = async () => {
-  if (isConnected) return;
+dbconnect()
+  .then(() => {
+    console.log("Conexión con la base de datos exitosa");
+  })
+  .catch((error) => {
+    console.error("Hubo un error al conectar a la base de datos:", error);
+  });
 
-  await dbconnect();
-  isConnected = true;
+module.exports = (req, res) => {
+  app(req, res);
 };
-
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (error) {
-    res.status(500).json({ error: "Database connection failed" });
-  }
-});
-
-module.exports = app;
