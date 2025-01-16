@@ -5,27 +5,19 @@ const Estudiantes = require("../models/estudiante");
 // Obtener estudiantes
 router.get("/estudiantes", async (req, res) => {
   try {
-    const { curso } = req.query; // Si se añade un query de curso, se busca a los estudiantes que estén inscriptos en ese curso
+    const { curso } = req.query;
 
-    if (!curso) {
-      // Si no se añade un query, se obtienen todos los alumnos
-      const estudiantes = await Estudiantes.find();
-      res.status(200).json({
-        success: true,
-        message: "Estudiantes obtenido con éxito",
-        data: estudiantes,
-      });
-    } else {
-      const filtro = curso ? { cursos: { $in: [curso] } } : {};
+    const query = curso
+      ? Estudiantes.find({ cursos: { $in: [curso] } })
+      : Estudiantes.find();
 
-      const estudiantesFiltrados = await Estudiantes.find(filtro);
+    const estudiantes = await query.lean().maxTimeMS(5000).exec();
 
-      res.status(200).json({
-        success: true,
-        message: "Estudiantes obtenido con éxito",
-        data: estudiantesFiltrados,
-      });
-    }
+    res.status(200).json({
+      success: true,
+      message: "Estudiantes obtenido con éxito",
+      data: estudiantes,
+    });
   } catch (error) {
     console.error("Hubo un error al obtener estudiantes: ", error);
     res.status(500).json({
