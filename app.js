@@ -7,12 +7,16 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
+const PORT = process.env.PORT || 3000;
+
 dbconnect()
   .then(() => {
-    console.log("Conexión con la base de datos exitosa");
+    app.listen(3000, () => {
+      console.log(`El servidor está corriendo en el puerto ${3000}`);
+    });
   })
   .catch((error) => {
-    console.error("Hubo un error al conectar a la base de datos:", error);
+    console.log("No se pudo conectar al servidor: " + error);
   });
 
 module.exports = (req, res) => {
