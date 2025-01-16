@@ -12,7 +12,7 @@ router.get("/estudiantes", async (req, res) => {
       const estudiantes = await Estudiantes.find();
       res.status(200).json({
         success: true,
-        message: "Estudiantes obtenido con éxito",
+        message: "Estudiantes obtenidos con éxito",
         data: estudiantes,
       });
     } else {
@@ -22,7 +22,7 @@ router.get("/estudiantes", async (req, res) => {
 
       res.status(200).json({
         success: true,
-        message: "Estudiantes obtenido con éxito",
+        message: "Estudiantes obtenidos con éxito",
         data: estudiantesFiltrados,
       });
     }
