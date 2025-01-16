@@ -15,4 +15,6 @@ dbconnect()
     console.error("Hubo un error al conectar a la base de datos:", error);
   });
 
-module.exports = app;
+module.exports = (req, res) => {
+  app(req, res);
+};
