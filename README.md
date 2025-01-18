@@ -26,21 +26,22 @@ Esta API de Gestión Escolar es una aplicación backend desarrollada con Node.js
 ├── routes/ 
 │   └── routes.js            # Rutas de la API
 ├── app.js                   # Punto de entrada de la aplicación
-└── package.json             # Dependencias y scripts
+├── package.json             # Dependencias y scripts
+└── vercel.json              # Configuración para Vercel
 ```
 
 ## API Endpoints
-### GET /estudiantes
+### GET api/estudiantes
 Obtiene todos los estudiantes
 
 Permite filtrado por curso usando query parameter
 
 Ejemplo: /estudiantes?curso=Matemática
 
-### GET /estudiantes/:id
+### GET api/estudiantes/:id
 Obtiene un estudiante específico por ID
 
-### POST /estudiantes
+### POST api/estudiantes
 Crea un nuevo estudiante. 
 Requiere body:
 ```plaintext
@@ -52,10 +53,10 @@ Requiere body:
 }
 ```
 
-### PUT /estudiantes/:id
+### PUT api/estudiantes/:id
 Actualiza información de un estudiante existente
 
-### DELETE /estudiantes/:id
+### DELETE api/estudiantes/:id
 Elimina un estudiante por ID
 
 ### Cursos Disponibles
